@@ -8,12 +8,14 @@ import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
  * @author janja
  */
-public class NivoSkijanja implements Serializable,OpstiDomenskiObjekat{
+public class NivoSkijanja implements Serializable, OpstiDomenskiObjekat {
+
     private int idNivoSkijanja;
     private int nivo;
     private String opis;
@@ -63,32 +65,32 @@ public class NivoSkijanja implements Serializable,OpstiDomenskiObjekat{
 
     @Override
     public String vratiVrednostiZaUbacivanje() {
-        return getNivo()+",'"+getOpis()+"'";
+        return getNivo() + ",'" + getOpis() + "'";
     }
 
     @Override
     public String vratiprimarniKljuc() {
-        return "nivo_skijanja.idNivoSkijanja="+getIdNivoSkijanja();
+        return "nivo_skijanja.idNivoSkijanja=" + getIdNivoSkijanja();
     }
 
     @Override
     public String vratiVrednostiZaIzmenu() {
-        return "nivo="+getNivo()+",opis='"+getOpis()+"'";
+        return "nivo=" + getNivo() + ",opis='" + getOpis() + "'";
     }
 
     @Override
     public List<OpstiDomenskiObjekat> vratiListu(ResultSet rs) throws Exception {
-         List<OpstiDomenskiObjekat> lista=new ArrayList<>();
-        
-        while(rs.next()){
-            int idNivoSkijanja=rs.getInt("nivo_skijanja.idNivoSkijanja");
-            int nivo=rs.getInt("nivo_skijanja.nivo");
-            String opis=rs.getString("nivo_skijanja.opis");
-            NivoSkijanja nivoSkijanja=new NivoSkijanja(idNivoSkijanja, nivo, opis);
+        List<OpstiDomenskiObjekat> lista = new ArrayList<>();
+
+        while (rs.next()) {
+            int idNivoSkijanja = rs.getInt("nivo_skijanja.idNivoSkijanja");
+            int nivo = rs.getInt("nivo_skijanja.nivo");
+            String opis = rs.getString("nivo_skijanja.opis");
+            NivoSkijanja nivoSkijanja = new NivoSkijanja(idNivoSkijanja, nivo, opis);
 
             lista.add(nivoSkijanja);
         }
-       
+
         return lista;
     }
 
@@ -96,7 +98,39 @@ public class NivoSkijanja implements Serializable,OpstiDomenskiObjekat{
     public OpstiDomenskiObjekat vratiObjekatIzRS(ResultSet rs) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public String toString() {
+        return this.opis;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final NivoSkijanja other = (NivoSkijanja) obj;
+        return this.idNivoSkijanja == other.idNivoSkijanja;
+    }
+
     
     
+
     
+
+    
+
+   
 }

@@ -100,10 +100,12 @@ public class ZaposleniTermin implements Serializable,OpstiDomenskiObjekat{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
+    @Override
+    public String vratiSK() {
+        return OpstiDomenskiObjekat.super.vratiSK(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
 
     
-    
-    
+
     
 }

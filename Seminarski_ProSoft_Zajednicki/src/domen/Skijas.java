@@ -83,7 +83,7 @@ public class Skijas implements Serializable,OpstiDomenskiObjekat{
 
     @Override
     public String vratiVrednostiZaUbacivanje() {
-        return "'"+getIme()+"','"+getPrezime()+"','"+getBrTelefona()+"',"+getNivoSkijanja();
+        return "'"+getIme()+"','"+getPrezime()+"','"+getBrTelefona()+"',"+getNivoSkijanja().getIdNivoSkijanja();
     }
 
     @Override
@@ -119,6 +119,16 @@ public class Skijas implements Serializable,OpstiDomenskiObjekat{
     @Override
     public OpstiDomenskiObjekat vratiObjekatIzRS(ResultSet rs) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String toString() {
+        return "Skijas{" + "idSkijas=" + idSkijas + ", ime=" + ime + ", prezime=" + prezime + ", brTelefona=" + brTelefona + ", nivoSkijanja=" + nivoSkijanja + '}';
+    }
+
+    @Override
+    public String vratiSK() {
+        return "JOIN nivo_skijanja ON skijas.idNivoSkijanja=nivo_skijanja.idNivoSkijanja";
     }
     
     

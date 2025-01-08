@@ -38,6 +38,11 @@ public class Zahtev implements Serializable{
     public void setOperacija(Operacija operacija) {
         this.operacija = operacija;
     }
+
+    @Override
+    public String toString() {
+        return "Zahtev{" + "operacija=" + operacija + ", argument=" + argument + '}';
+    }
     
     
     

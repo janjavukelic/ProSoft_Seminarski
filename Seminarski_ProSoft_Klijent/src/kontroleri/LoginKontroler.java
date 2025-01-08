@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import komunikacija.Komunikacija;
+import koordinator.Koordinator;
 
 /**
  *
@@ -35,18 +36,30 @@ public class LoginKontroler {
             }
 
             private void prijava(ActionEvent e) {
-                String korisnickoIme=loginForma.getTxtKorisnickoIme().getText();
+                String korisnickoIme=loginForma.getTxtKorisnickoIme().getText().trim();
                 String sifra=new String(loginForma.getTxtSifra().getPassword());
                 Zaposleni z=new Zaposleni(korisnickoIme, sifra);
                 
                 try {
-                    boolean login=Komunikacija.getInstance().login(z);
+                    Zaposleni ulogovani=Komunikacija.getInstance().prijaviZaposleni(z);
+                    if(ulogovani==null){
+                        JOptionPane.showMessageDialog(loginForma, "Prijava na sistem neuspesna!", "Greska", JOptionPane.ERROR_MESSAGE);
+                    }else {
+                        JOptionPane.showMessageDialog(loginForma, "Prijava na sistem uspesna!", "", JOptionPane.INFORMATION_MESSAGE);
+                        Koordinator.getInstanca().setUlogovani(ulogovani);
+                        Koordinator.getInstanca().otvoriGlavnuFormu();
+                        loginForma.dispose();
+                    }
                     
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(loginForma, "Greska u komunikaciji sa serverom.");
                 }
             }
         });
+    }
+
+    public void otvoriFormu() {
+        loginForma.setVisible(true);
     }
     
     

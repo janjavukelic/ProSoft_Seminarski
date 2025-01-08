@@ -75,8 +75,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtKorisnickoIme">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="polo"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtSifra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="polo"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnLogin">
       <Properties>

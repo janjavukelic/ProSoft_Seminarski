@@ -5,6 +5,7 @@
 package main;
 
 import forme.LoginFroma;
+import koordinator.Koordinator;
 
 /**
  *
@@ -12,9 +13,7 @@ import forme.LoginFroma;
  */
 public class Main {
     public static void main(String[] args) {
-        LoginFroma forma=new LoginFroma();
-        forma.setVisible(true);
-        
+        Koordinator.getInstanca().otvoriLoginFormu();
     }
     
 }

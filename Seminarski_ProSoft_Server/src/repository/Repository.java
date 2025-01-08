@@ -4,10 +4,16 @@
  */
 package repository;
 
+import java.util.List;
+
 /**
  *
  * @author janja
  */
 public interface Repository <T>{
-    
+    List<T> getAll(T param, String cond) throws Exception; 
+    List<T> getAll();
+    void add(T param) throws Exception;
+    void update(T param) throws Exception;
+    void delete(T param) throws Exception;
 }

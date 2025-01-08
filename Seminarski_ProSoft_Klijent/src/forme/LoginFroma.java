@@ -48,6 +48,10 @@ public class LoginFroma extends javax.swing.JFrame {
 
         jLabel2.setText("Šifra:");
 
+        txtKorisnickoIme.setText("polo");
+
+        txtSifra.setText("polo");
+
         btnLogin.setText("Uloguj se");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,9 +103,7 @@ public class LoginFroma extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
 
     public JButton getBtnLogin() {
         return btnLogin;
@@ -123,9 +125,7 @@ public class LoginFroma extends javax.swing.JFrame {
         return txtSifra;
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public void setTxtSifra(JPasswordField txtSifra) {
         this.txtSifra = txtSifra;
     }
@@ -140,6 +140,6 @@ public class LoginFroma extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void loginAddActionListener(ActionListener actionListener) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        btnLogin.addActionListener(actionListener);
     }
 }

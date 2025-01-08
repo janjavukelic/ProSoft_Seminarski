@@ -37,6 +37,11 @@ public class Odgovor implements Serializable{
     public void setArgument(Object argument) {
         this.argument = argument;
     }
+
+    @Override
+    public String toString() {
+        return "Odgovor{" + "argument=" + argument + ", exception=" + exception + '}';
+    }
     
     
     
